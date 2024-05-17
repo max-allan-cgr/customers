@@ -1,0 +1,35 @@
+<HTML>
+
+<body>
+<!-- esprima required only for !!js/function -->
+<script src="https://unpkg.com/esprima@~4.0/dist/esprima.js"></script>
+
+<script src="js-yaml.js"></script>
+
+
+<script type="text/javascript">
+    var table = `
+    <tr>
+        <th onclick="sortTable(0)"><span class="glyphicon glyphicon-sort"></span>Product</th>
+        <th onclick="sortTable(1)"><span class="glyphicon glyphicon-sort"></span>Comment</th>
+    </tr>
+`
+    
+    console.log(table);
+    console.log(table.Id);
+    
+    tab1 = document.createElement("table");
+    tab1.innerHTML=table;
+    document.body.appendChild(tab1);
+
+    var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + "foo" + '</td>' +
+                '<td>' + "bar" + '</td>' +
+                '<td>' + "bas" + '</td>' ;
+                tab1.appendChild(tr);
+</script>
+
+
+</body>
+</html>
+

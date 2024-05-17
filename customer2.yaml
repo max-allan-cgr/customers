@@ -1,0 +1,11 @@
+channel: customer2
+repo: customer2
+relationship: customer
+custom:
+  - source: python
+    date: 2024-05-01  
+  - source: postgres
+    date: 2024-05-01  
+  - source: request-123
+    comment: Custom request for image
+    date: 2024-05-01

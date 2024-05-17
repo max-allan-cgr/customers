@@ -1,0 +1,79 @@
+<HTML>
+    <head>
+        <style>
+        table, td {
+          border: 1px solid black;
+        }
+        </style>
+        </head>
+
+<body>
+<!-- esprima required only for !!js/function -->
+<script src="https://unpkg.com/esprima@~4.0/dist/esprima.js"></script>
+
+<script src="js-yaml.js"></script>
+<script type="text/javascript">
+var doc = jsyaml.load('greeting: hello\nname: world');
+console.log(doc);
+
+async function getYaml(file,table) {
+  let myObject = await fetch(file);
+  yaml= await myObject.text();
+  console.log(yaml);
+  var fileContent = jsyaml.load(yaml);
+
+
+  fileContent.custom.forEach(function(object) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + object.source + '</td>' +
+                '<td>' +  (object.comment ?? '-') + '</td>' +
+                '<td>' +  new Date(object.date).toDateString() + '</td>' ;
+                table.appendChild(tr);
+            });
+}
+
+var table = `
+    <tr>
+        <th>Product</th>
+        <th>Comment</th>
+        <th>Date</th>
+        </tr>
+`
+
+tab1 = document.createElement("table");
+tab1.id="tab1";
+document.body.appendChild(tab1);
+tab1.innerHTML=table;
+cap1 = document.getElementById("tab1");
+console.log (cap1);
+foo = cap1.createCaption();
+foo.innerHTML = "Customer 1";
+
+
+getYaml("customer1.yaml" , tab1 );
+document.body.appendChild(tab1);
+
+document.body.appendChild(document.createElement("p"));
+//  TABLE 2
+
+
+tab2 = document.createElement("table");
+tab2.innerHTML=table;
+tab2.id="tab2";
+
+
+getYaml("customer2.yaml" , tab2 );
+document.body.appendChild(tab2);
+
+cap2 = document.getElementById("tab2").createCaption();
+cap2.innerHTML = "Customer 2";
+document.body.appendChild(tab2);
+
+
+</script>
+
+
+
+</body>
+</html>
+

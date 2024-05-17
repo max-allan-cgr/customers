@@ -1,0 +1,12 @@
+<html>
+<body><ul>
+    {% for member in site.data.people %}
+      <li>
+        <a href="https://github.com/{{ member.github }}">
+          {{ member.name }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>>
+  </body>
+</html>

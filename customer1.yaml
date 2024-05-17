@@ -1,0 +1,14 @@
+channel: prospect-
+repo: customer1
+relationship: prospect
+custom:
+  - source: base
+    comment: they wanted base
+    date: 2025-05-07  
+  - source: node
+    date: 2024-06-07  
+  - source: nginx
+    date: 2024-05-07  
+
+
+  
